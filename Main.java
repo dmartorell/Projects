@@ -1,4 +1,3 @@
-package com.codewithmosh;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -51,3 +50,42 @@ public class Main {
 
     }
 }
+
+// programa 99 Bottles con método recursivo
+
+
+public class Main {
+
+    public static void printSongFinal () {
+        System.out.println("No bottles of beer on the wall,");
+        System.out.println("no bottles of beer,");
+        System.out.println("ya’ can’t take one down, ya’ can’t pass it around,");
+        System.out.println("’cause there are no more bottles of beer on the wall!");
+        return;
+
+    }
+
+    public static void printSong (int numPrint) {
+        System.out.println(numPrint + " bottles of beer on the wall,");
+        System.out.println(numPrint + " bottles of beer,");
+        System.out.println("ya’ take one down, ya’ pass it around,");
+        System.out.println(numPrint - 1 + " bottles of beer on the wall.");
+        System.out.println();
+    }
+
+    public static void doMath (int numBottles) {
+        if (numBottles == 0) {
+            printSongFinal();
+            return;
+        }
+        printSong(numBottles);
+        doMath(numBottles - 1);
+    }
+        public static void main(String[] args) {
+        doMath(3);
+
+    }
+
+}
+
+//
