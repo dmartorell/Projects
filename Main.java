@@ -88,4 +88,51 @@ public class Main {
 
 }
 
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+
+    /* Número al azar. El usuario hace su apuesta. Decir si está por encima o por debajo
+    y volver a hacer apuesta */
+
+    public static void calculoApuesta (int randomNumber) {
+        // Input del usuario
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("¿Cuál es tu apuesta? ");
+        int apuesta = input.nextInt();
+        System.out.println(apuesta);
+        if (apuesta > 10 || apuesta == 0) {
+            System.out.println("Número del 1 al 10, please.");
+            calculoApuesta(randomNumber);
+        }
+
+            // recursivo
+
+        if (apuesta == randomNumber) {
+            System.out.println("Has acertado, capo!");
+            return;
+        } else if (apuesta > randomNumber) {
+            System.out.println("Te has pasado.");
+            calculoApuesta(randomNumber);
+            } else if (apuesta < randomNumber) {
+                System.out.println("Demasiado bajo. Afina, figura!");
+                calculoApuesta(randomNumber);
+            }
+
+    }
+
+        public static void main (String[]args){
+            // Generar int random entre 1-10.
+            Random random = new Random();
+            int randomNumber = random.nextInt(10) + 1;
+
+            calculoApuesta(randomNumber);
+
+        }
+    }
+
+
 //
